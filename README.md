@@ -1,3 +1,7 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7f9fc531-eda9-4b02-aa93-d966d9c3e1ff/deploy-status)](https://app.netlify.com/sites/elated-cray-14ffcc/deploys)
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
