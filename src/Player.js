@@ -21,23 +21,17 @@ const Player = props => {
 
   const randomize = () => setPosition(randomCoords(getViewportSize()));
 
-  const divStyle = {
-    position: "relative",
-    background: "red",
-    border: "1px solid black",
-    height: "100px",
-    width: "100px"
-  };
+
 
   return (
-    <div style={divStyle}>
-      <img
+
+      <img className="player"
         src={img}
         style={position}
         alt="from your github"
         onClick={randomize}
       />
-    </div>
+
   );
 };
 
