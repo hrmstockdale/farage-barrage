@@ -36,4 +36,9 @@
   border-radius: 50%;
   height: auto;
   width: 5%;
+  cursor: url('./assetts/milkshake-for-farage.png')
+}
+
+.player:hover {
+  /* cursor: url(assetts/milkshake-for-farage.png),auto; */
 }
