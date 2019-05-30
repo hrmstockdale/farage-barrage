@@ -14,7 +14,6 @@ const getViewportSize = () => {
 
 const randomCoords = arr => {
   arr = arr.map(x => getRandomInt(x));
-  console.log("Randomised array", arr);
   return {
     position: "absolute",
     top: arr[1],
