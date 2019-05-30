@@ -28,5 +28,8 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "jest": "^24.7.1",
+    "react-testing-library": "^7.0.1"
+  }
 }
