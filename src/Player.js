@@ -2,11 +2,11 @@ import React from "react";
 import { getUserData } from "./utils/data_helpers";
 import {
   getViewportSize,
-  randomCoords,
-  getRandomInt
+  randomCoords
 } from "./utils/randomCoords";
 
 const Player = props => {
+  console.log(props)
   const [img, setImg] = React.useState(null);
   const [position, setPosition] = React.useState({
     position: "absolute",
@@ -20,24 +20,19 @@ const Player = props => {
   }, []);
 
   const randomize = () => setPosition(randomCoords(getViewportSize()));
-
-  const divStyle = {
-    position: "relative",
-    background: "red",
-    border: "1px solid black",
-    height: "100px",
-    width: "100px"
+  const twoFuncs = () => {
+    props.updateScore()
+    randomize()
   };
-
   return (
-    <div style={divStyle}>
-      <img
+
+      <img className="player"
         src={img}
         style={position}
         alt="from your github"
-        onClick={randomize}
+        onClick={twoFuncs}
       />
-    </div>
+
   );
 };
 

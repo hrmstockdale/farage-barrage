@@ -3,8 +3,8 @@ const getViewportSize = () => {
   let viewportHeight;
 
   if (typeof window.innerWidth !== "undefined") {
-    viewportWidth = window.innerWidth;
-    viewportHeight = window.innerHeight;
+    viewportWidth = window.innerWidth - (window.innerWidth * 0.15);
+    viewportHeight = window.innerHeight - (window.innerHeight * 0.15);
 
     console.log("Viewport width: ", viewportWidth);
     console.log("Viewport height: ", viewportHeight);

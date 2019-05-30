@@ -31,3 +31,9 @@
     transform: rotate(360deg);
   }
 }
+
+.player {
+  border-radius: 50%;
+  height: auto;
+  width: 5%;
+}
