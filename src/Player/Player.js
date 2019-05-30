@@ -1,6 +1,7 @@
 import React from "react";
 import { getUserData } from "../utils/data_helpers";
 import { getViewportSize, randomCoords } from "../utils/randomCoords";
+import milkshake from "../assetts/milkshake-for-farage-small.ico";
 
 const Player = props => {
   console.log(props);
@@ -30,7 +31,7 @@ const Player = props => {
     <img
       className="player"
       src={img}
-      style={position}
+      style={{...position, cursor:`url(${milkshake}), auto` }}
       alt="from your github"
       onClick={twoFuncs}
     />
