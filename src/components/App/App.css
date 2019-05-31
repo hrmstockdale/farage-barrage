@@ -1,7 +1,15 @@
+<<<<<<< HEAD:src/components/App/App.css
 body {
   cursor: url("../../assets/milkshake-for-farage-small.ico");
 }
 
+||||||| merged common ancestors:src/App.css
+body {
+  cursor: url("./assets/milkshake-for-farage-small.ico");
+}
+
+=======
+>>>>>>> master:src/App.css
 .App {
   text-align: center;
 }

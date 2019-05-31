@@ -6,11 +6,11 @@ import Farage from "../Farage/Farage.js";
 
 function App() {
   const [points, setPoints] = React.useState(0);
-  const plusPlayerOnClick = prevPoints => {
+  const plusPlayerOnClick = () => {
     setPoints(prevPoints => prevPoints + 1);
   };
 
-  const minusPlayerOnClick = prevPoints => {
+  const minusPlayerOnClick = () => {
     setPoints(prevPoints => prevPoints - 1);
   };
 
