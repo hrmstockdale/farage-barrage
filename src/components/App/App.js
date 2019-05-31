@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
-import Player from "./Player/Player";
-import Scoreboard from "./Scoreboard/Scoreboard";
-import Farage from "./Farage/Farage.js";
+import Player from "./../Player/Player";
+import Scoreboard from "./../Scoreboard/Scoreboard";
+import Farage from "../Farage/Farage.js";
 
 function App() {
   const [points, setPoints] = React.useState(0);

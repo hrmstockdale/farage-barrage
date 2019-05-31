@@ -1,10 +1,10 @@
 import React from "react";
-import { getViewportSize, randomCoords } from "../utils/randomCoords";
-import milkshake from "../assets/milkshake-for-farage-small.ico";
-import farage1 from "../assets/farage001.jpeg";
-import farage2 from "../assets/farage002.jpg";
-import farage3 from "../assets/farage003.jpg";
-import farage4 from "../assets/farage004.jpeg";
+import { getViewportSize, randomCoords } from "../../utils/randomCoords";
+import milkshake from "../../assets/milkshake-for-farage-small.ico";
+import farage1 from "../../assets/farage001.jpeg";
+import farage2 from "../../assets/farage002.jpg";
+import farage3 from "../../assets/farage003.jpg";
+import farage4 from "../../assets/farage004.jpeg";
 
 const Farage = props => {
   const [img, setImg] = React.useState(null);
