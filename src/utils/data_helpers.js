@@ -3,7 +3,7 @@ let gitHubToken = process.env.REACT_APP_GITHUB_ACCESS_TOKEN;
 const checkResponse = response => {
   if (response.status !== 200) {
     console.log(`Error with the request! ${response.status}`);
-    return;
+    return { errorResponse: `Error with the request! ${response.status}`};
   }
   return response.json();
 };

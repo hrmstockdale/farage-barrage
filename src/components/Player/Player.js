@@ -4,7 +4,7 @@ import { getViewportSize, randomCoords } from "../../utils/randomCoords";
 import milkshake from "../../assets/milkshake-for-farage-small.ico";
 
 const Player = props => {
-  console.log(props);
+  const [error, setError] = React.useState(null);
   const [img, setImg] = React.useState(null);
   const [position, setPosition] = React.useState({
     position: "absolute",
@@ -14,7 +14,7 @@ const Player = props => {
 
   React.useEffect(() => {
     const username = "bobbysebolao";
-    getUserData(username).then(response => setImg(response.avatar_url));
+    getUserData(username).then(({errorResponse, avatar_url}) => errorResponse ? setError(errorResponse) : setImg(avatar_url));
   }, []);
 
   const randomize = () => setPosition(randomCoords(getViewportSize()));
@@ -23,9 +23,13 @@ const Player = props => {
     randomize();
   };
 
-  if (!img) {
+  if (!img && !error) {
     return <p>Loading...</p>;
   }
+  if (error) {
+    return <p>Player not found</p>
+  } 
+
 
   return (
     <img
