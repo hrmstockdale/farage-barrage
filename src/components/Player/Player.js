@@ -1,7 +1,7 @@
 import React from "react";
-import { getUserData } from "../utils/data_helpers";
-import { getViewportSize, randomCoords } from "../utils/randomCoords";
-import milkshake from "../assets/milkshake-for-farage-small.ico";
+import { getUserData } from "../../utils/data_helpers";
+import { getViewportSize, randomCoords } from "../../utils/randomCoords";
+import milkshake from "../../assets/milkshake-for-farage-small.ico";
 
 const Player = props => {
   console.log(props);
