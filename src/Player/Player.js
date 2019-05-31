@@ -18,7 +18,7 @@ const Player = props => {
   }, []);
 
   const randomize = () => setPosition(randomCoords(getViewportSize()));
-  const twoFuncs = () => {
+  const updateScoreSetPosition = () => {
     props.updateScore();
     randomize();
   };
@@ -33,7 +33,7 @@ const Player = props => {
       src={img}
       style={{ ...position, cursor: `url(${milkshake}), auto` }}
       alt="from your github"
-      onClick={twoFuncs}
+      onClick={updateScoreSetPosition}
     />
   );
 };
