@@ -4,6 +4,73 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Farage Barrage
+
+## How To Play
+
+Click on Farage to milkshake him and increase your score!
+
+https://elated-cray-14ffcc.netlify.com/
+
+## Local Set Up Instructions
+ 1. Clone this repo.
+ 2. Go to the repo folder farage-barrage.
+ 3. Run ```npm i``` to install all the packages used.
+ 4. Run ```npm start``` to run the server.
+ 5. Visit localhost:3000 in your browser - you're set up!
+
+## Goals
+<!-- - Track mouse position (refer back to workshop) -->
+- [x] Set default player state to be an x/y coordinate
+- [x] Hook to update player state (position) on click
+- [x] API req to github API: MVP bobby's github
+- [x] avatar_url profilepiccy
+- [x] Reduce vw width and height by image width and height
+- [x] Have a score counter 
+- [x] Increment score when farage SVG is clicked
+- [x] Decrement score when github SVG is clicked
+- [ ] Style the game board
+- [ ] Style the player/Farage images
+- [x] Integration tests
+
+## Stretch Goals
+- [x] Add loading icon/animation/text for github image
+- [ ] landing window with input for username and button to start game
+- [ ] Have a timer
+- [ ] Character select functionality (Farage, Bush, Corbyn)
+- [ ] Cursor animation on click
+- [ ] Animate Farage transition
+- [ ] Add some kind of Newcastle styling/easter egg (newcastle football scoreboard)
+- [ ] Difficulty levels tied to Farage movement speed
+
+## Components 
+
+- Farage SVG component
+- Player SVG component
+- Scoreboard component
+
+## Things We Learned
+- Don't push API keys to Github
+- Don't ```npm i jest``` on a Create React App (no need)
+- Assets, e.g images need an import
+- How 'lifting the state' works in React
+
+
+![](https://i.imgur.com/Z0IcGtp.png)
+![](https://i.imgur.com/z2IvaUG.png)
+![](https://i.imgur.com/8XgcK3b.png)
+
+
+
+
+
+
+
+
+
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
