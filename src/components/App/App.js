@@ -15,11 +15,11 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className='App'>
       <Scoreboard data={points} />
       <Player updateScore={minusPlayerOnClick} />
       <Farage updateScore={plusPlayerOnClick} />
-      <header className="App-header" />
+      <header className='App-header' />
     </div>
   );
 }
