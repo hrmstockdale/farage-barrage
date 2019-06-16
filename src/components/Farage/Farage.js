@@ -7,6 +7,7 @@ import farage3 from "../../assets/farage003.jpg";
 import farage4 from "../../assets/farage004.jpeg";
 
 const Farage = props => {
+  const [count, setCount] = React.useState(0);
   const [timer, setTimer] = React.useState(1500);
   const [img, setImg] = React.useState(null);
   const [position, setPosition] = React.useState({
@@ -26,6 +27,7 @@ const Farage = props => {
   const randomize = () => setPosition(randomCoords(getViewportSize()));
   const updateScoreSetPosition = () => {
     setTimer(prevTime => prevTime - 10);
+    setCount(prevCount => prevCount + 1);
     props.updateScore();
     randomize();
   };
@@ -33,6 +35,7 @@ const Farage = props => {
   React.useEffect(() => {
     const interval = setInterval(() => {
       setTimer(prevTime => prevTime - 10);
+      setCount(prevCount => prevCount + 1);
       randomize();
     }, timer);
     return () => clearInterval(interval);
