@@ -15,6 +15,10 @@ const Timer = props => {
     return () => clearInterval(interval);
   }, [isRunning]);
 
+  React.useEffect(() => {
+    setIsRunning(true);
+  }, []);
+
   const handleReset = () => {
     setIsRunning(false);
     setElapsedTime(0);
