@@ -7,6 +7,7 @@ import farage3 from "../../assets/farage003.jpg";
 import farage4 from "../../assets/farage004.jpeg";
 
 const Farage = props => {
+  const [timer, setTimer] = React.useState(1500);
   const [img, setImg] = React.useState(null);
   const [position, setPosition] = React.useState({
     position: "absolute",
@@ -14,22 +15,28 @@ const Farage = props => {
     left: 100
   });
 
-  React.useEffect(
-    () => {
-      const imageURLs = [farage1, farage2, farage3, farage4];
+  React.useEffect(() => {
+    const imageURLs = [farage1, farage2, farage3, farage4];
 
-      let image = imageURLs[Math.floor(Math.random() * imageURLs.length)];
+    let image = imageURLs[Math.floor(Math.random() * imageURLs.length)];
 
-      setImg(image);
-    },
-    [position]
-  );
+    setImg(image);
+  }, [position]);
 
   const randomize = () => setPosition(randomCoords(getViewportSize()));
   const updateScoreSetPosition = () => {
+    setTimer(prevTime => prevTime - 10);
     props.updateScore();
     randomize();
   };
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer(prevTime => prevTime - 10);
+      randomize();
+    }, timer);
+    return () => clearInterval(interval);
+  }, [randomize]);
 
   if (!img) {
     return <p>Loading...</p>;
@@ -37,10 +44,10 @@ const Farage = props => {
 
   return (
     <img
-      className="player"
+      className='player'
       src={img}
       style={{ ...position, cursor: `url(${milkshake}), auto` }}
-      alt="from your github"
+      alt='from your github'
       onClick={updateScoreSetPosition}
     />
   );
