@@ -14,7 +14,9 @@ const Player = props => {
 
   React.useEffect(() => {
     const username = "bobbysebolao";
-    getUserData(username).then(({errorResponse, avatar_url}) => errorResponse ? setError(errorResponse) : setImg(avatar_url));
+    getUserData(username).then(({ errorResponse, avatar_url }) =>
+      errorResponse ? setError(errorResponse) : setImg(avatar_url)
+    );
   }, []);
 
   const randomize = () => setPosition(randomCoords(getViewportSize()));
@@ -27,16 +29,15 @@ const Player = props => {
     return <p>Loading...</p>;
   }
   if (error) {
-    return <p>Player not found</p>
-  } 
-
+    return <p>Player not found</p>;
+  }
 
   return (
     <img
-      className="player"
+      className='player'
       src={img}
       style={{ ...position, cursor: `url(${milkshake}), auto` }}
-      alt="from your github"
+      alt='from your github'
       onClick={updateScoreSetPosition}
     />
   );
