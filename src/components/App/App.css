@@ -1,6 +1,6 @@
-/* body {
-  cursor: url("../../assets/milkshake-for-farage-small.ico");
-} */
+body {
+  user-select: none;
+}
 
 .App {
   text-align: center;

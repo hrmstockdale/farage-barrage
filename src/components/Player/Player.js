@@ -38,7 +38,7 @@ const Player = props => {
       src={img}
       style={{ ...position, cursor: `url(${milkshake}), auto` }}
       alt='from your github'
-      onClick={updateScoreSetPosition}
+      onMouseDown={updateScoreSetPosition}
     />
   );
 };
