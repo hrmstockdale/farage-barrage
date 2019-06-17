@@ -1,27 +1,18 @@
 import React from "react";
 import "./App.css";
-import Player from "./../Player/Player";
-import Scoreboard from "./../Scoreboard/Scoreboard";
-import Farage from "../Farage/Farage.js";
+import Game from "../Game/Game";
+import Login from "../Login/Login";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
-function App() {
-  const [points, setPoints] = React.useState(0);
-  const plusPlayerOnClick = () => {
-    setPoints(prevPoints => prevPoints + 1);
-  };
-
-  const minusPlayerOnClick = () => {
-    setPoints(prevPoints => prevPoints - 1);
-  };
-
+const App = () => {
   return (
-    <div className='App'>
-      <Scoreboard data={points} />
-      <Player updateScore={minusPlayerOnClick} />
-      <Farage updateScore={plusPlayerOnClick} />
-      <header className='App-header' />
-    </div>
+    <BrowserRouter>
+      <div className='App'>
+        <Login />
+        <Game />
+      </div>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
