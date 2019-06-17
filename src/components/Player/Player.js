@@ -32,13 +32,18 @@ const Player = props => {
     return <p>Player not found</p>;
   }
 
+  const preventDragHandler = e => {
+    e.preventDefault();
+  };
+
   return (
     <img
       className='player'
       src={img}
       style={{ ...position, cursor: `url(${milkshake}), auto` }}
       alt='from your github'
-      onClick={updateScoreSetPosition}
+      onMouseDown={updateScoreSetPosition}
+      onDragStart={preventDragHandler}
     />
   );
 };
