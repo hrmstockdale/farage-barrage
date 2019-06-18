@@ -1,4 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7f9fc531-eda9-4b02-aa93-d966d9c3e1ff/deploy-status)](https://app.netlify.com/sites/elated-cray-14ffcc/deploys)
 
 
 
@@ -10,7 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Click on Farage to milkshake him and increase your score!
 
-https://elated-cray-14ffcc.netlify.com/
+
 
 ## Local Set Up Instructions
  1. Clone this repo.
