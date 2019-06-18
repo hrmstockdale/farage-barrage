@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../Button/Button";
 
 const Timer = props => {
   const [isRunning, setIsRunning] = React.useState(false);
@@ -19,30 +20,27 @@ const Timer = props => {
     setIsRunning(true);
   }, []);
 
-  const handleReset = () => {
-    setIsRunning(false);
-    setElapsedTime(0);
-  };
+  // const handleReset = () => {
+  //   setIsRunning(false);
+  //   setElapsedTime(0);
+  // };
 
-  const handleStartStop = () => {
-    const startTimer = () => setIsRunning(true);
-    const stopTimer = () => setIsRunning(false);
-    isRunning ? stopTimer() : startTimer();
-  };
+  // const handleStartStop = () => {
+  //   const startTimer = () => setIsRunning(true);
+  //   const stopTimer = () => setIsRunning(false);
+  //   isRunning ? stopTimer() : startTimer();
+  // };
 
   return (
     <div>
       <h1>{elapsedTime.toFixed(1)}s</h1>
       <div>
-        <button disabled={elapsedTime === "0.0"} onClick={handleReset}>
-          Reset
-        </button>
-        <button
-          onClick={handleStartStop}
-          status={isRunning ? "running" : "stopped"}
-        >
-          {isRunning ? "Stop" : "Start"}
-        </button>
+        <label>
+          check me for options
+          <input name='buttons' type='checkbox' />
+        </label>
+        <Button link='/game'>Reset</Button>
+        <Button link='/'>Back</Button>
       </div>
     </div>
   );
