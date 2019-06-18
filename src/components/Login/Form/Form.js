@@ -1,4 +1,6 @@
 import React from "react";
+import { Button } from "../../Button/Button";
+import Milkshake from "../Milkshake/Milkshake";
 
 const Form = callback => {
   const [values, setValues] = React.useState({});
@@ -19,8 +21,11 @@ const Form = callback => {
   return (
     <React.Fragment>
       <form className='form' onSubmit={handleSubmit}>
+        <h1>Farrage Barrage</h1>
+        <Milkshake />
         <label>
           name:
+          <br />
           <input
             name='name'
             type='text'
@@ -28,17 +33,16 @@ const Form = callback => {
             onChange={handleChange}
           />
         </label>
-        <br />
         <label>
           Github username:
           <input
             name='githubUser'
-            type='email'
+            type='username'
             value={values.githubUser}
             onChange={handleChange}
           />
         </label>
-        <input type='submit' value='Submit' />
+        <Button link='/game'> PLAY</Button>
       </form>
     </React.Fragment>
   );
