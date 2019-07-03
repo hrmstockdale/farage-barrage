@@ -18,7 +18,7 @@ const Button = styled.button`
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
     transition: all 0.3s;
-    background: #cb4e4e;
+	background: rgb(234,85,105);
     color: #fff;
     box-shadow: 0 6px #ab3c3c;
     -webkit-transition: none;
@@ -57,7 +57,7 @@ const Button1 = styled.button`
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
     transition: all 0.3s;
-    background: #cb4e4e;
+    background: rgb(234,85,105);
     color: #fff;
     box-shadow: 0 6px #ab3c3c;
     -webkit-transition: none;

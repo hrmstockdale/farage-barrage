@@ -10,12 +10,35 @@ const urls = {
 };
 
 const App = () => {
+  const [error, setError] = React.useState(null);
+  const [img, setImg] = React.useState(null);
+
+  const passSetterError = error => {
+    setError(prev => prev + error);
+  };
+
+  const passSetterImg = img => {
+    setImg(prev => prev + img);
+  };
+
+  console.log(img);
+  console.log(error);
   return (
     <BrowserRouter>
       <div className='App'>
         <Switch>
-          <Route exact path={urls.home} render={props => <Login />} />
-          <Route exact path={urls.game} render={props => <Game />} />
+          <Route
+            exact
+            path={urls.home}
+            render={props => {
+              return <Login error={passSetterError} img={passSetterImg} />;
+            }}
+          />
+          <Route
+            exact
+            path={urls.game}
+            render={props => <Game error={error} img={img} />}
+          />
         </Switch>
       </div>
     </BrowserRouter>

@@ -1,13 +1,19 @@
 import React from "react";
 import { Button } from "../../Button/Button";
 import Milkshake from "../Milkshake/Milkshake";
+import { getUserData } from "../../../utils/data_helpers";
 
-const Form = callback => {
+const Form = props => {
   const [values, setValues] = React.useState({});
 
+  let gitHubToken = process.env.REACT_APP_GITHUB_ACCESS_TOKEN;
+
   const handleSubmit = event => {
-    if (event) event.preventDefault();
-    callback();
+    event.preventDefault();
+    getUserData(values.githubUser, gitHubToken).then(
+      ({ errorResponse, avatar_url }) =>
+        errorResponse ? props.error(errorResponse) : props.img(avatar_url)
+    );
   };
 
   const handleChange = event => {
@@ -18,6 +24,7 @@ const Form = callback => {
     }));
   };
 
+  console.log(values);
   return (
     <React.Fragment>
       <form className='form' onSubmit={handleSubmit}>
@@ -37,12 +44,14 @@ const Form = callback => {
           Github username:
           <input
             name='githubUser'
-            type='username'
+            type='text'
             value={values.githubUser}
             onChange={handleChange}
           />
         </label>
-        <Button link='/game'> PLAY</Button>
+        <Button link='/game' form='form' type='submit'>
+          PLAY
+        </Button>
       </form>
     </React.Fragment>
   );

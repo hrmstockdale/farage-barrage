@@ -16,7 +16,11 @@ const Game = props => {
   return (
     <React.Fragment>
       <Scoreboard data={points} />
-      <Player updateScore={minusPlayerOnClick} />
+      <Player
+        updateScore={minusPlayerOnClick}
+        error={props.error}
+        img={props.img}
+      />
       <Farage updateScore={plusPlayerOnClick} />
     </React.Fragment>
   );

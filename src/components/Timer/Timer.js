@@ -33,15 +33,11 @@ const Timer = props => {
 
   return (
     <div>
-      <h1>{elapsedTime.toFixed(1)}s</h1>
       <div>
-        <label>
-          check me for options
-          <input name='buttons' type='checkbox' />
-        </label>
         <Button link='/game'>Reset</Button>
         <Button link='/'>Back</Button>
       </div>
+      <h1>{elapsedTime.toFixed(1)}s</h1>
     </div>
   );
 };
