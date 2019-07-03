@@ -2,12 +2,11 @@ import React from "react";
 import Form from "./Form/Form";
 
 const Login = props => {
-  const [name, setName] = React.useState("");
-  const [gitUser, setGitUser] = React.useState("");
+  console.log(props.error);
   return (
     <React.Fragment>
       <div className='App1'>
-        <Form />
+        <Form error={props.error} img={props.img} />
       </div>
     </React.Fragment>
   );

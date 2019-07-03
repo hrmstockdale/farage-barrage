@@ -3,12 +3,12 @@ let gitHubToken = process.env.REACT_APP_GITHUB_ACCESS_TOKEN;
 const checkResponse = response => {
   if (response.status !== 200) {
     console.log(`Error with the request! ${response.status}`);
-    return { errorResponse: `Error with the request! ${response.status}`};
+    return { errorResponse: `Error with the request! ${response.status}` };
   }
   return response.json();
 };
 
-const getUserData = username => {
+const getUserData = (username, gitHubToken) => {
   return fetch(
     `https://api.github.com/users/${username}?access_token=${gitHubToken}`
   )
