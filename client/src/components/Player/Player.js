@@ -4,6 +4,8 @@ import { getViewportSize, randomCoords } from "../../utils/randomCoords";
 import milkshake from "../../assets/milkshake-for-farage-small.ico";
 
 const Player = props => {
+  const [count, setCount] = React.useState(0);
+  const [timer, setTimer] = React.useState(1500);
   const [position, setPosition] = React.useState({
     position: "absolute",
     top: 50,
@@ -14,9 +16,20 @@ const Player = props => {
 
   const randomize = () => setPosition(randomCoords(getViewportSize()));
   const updateScoreSetPosition = () => {
+    setTimer(prevTime => prevTime - 10);
+    setCount(prevCount => prevCount + 1);
     props.updateScore();
     randomize();
   };
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer(prevTime => prevTime - 10);
+      setCount(prevCount => prevCount + 1);
+      randomize();
+    }, timer);
+    return () => clearInterval(interval);
+  }, [randomize]);
 
   if (!props.img && !props.error) {
     return <p>Loading...</p>;

@@ -16,6 +16,7 @@ const Farage = props => {
     left: 100
   });
 
+  console.log(count);
   React.useEffect(() => {
     const imageURLs = [farage1, farage2, farage3, farage4];
 
