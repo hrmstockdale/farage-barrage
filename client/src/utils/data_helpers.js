@@ -2,7 +2,8 @@ let gitHubToken = process.env.REACT_APP_GITHUB_ACCESS_TOKEN;
 
 const checkResponse = response => {
   if (response.status !== 200) {
-    alert("username not recognized");
+    // alert("username not recognized");
+    // window.location.reload();
     console.log(`Error with the request! ${response.status}`);
     return {
       errorResponse: `Error with the request! ${response.status}`
