@@ -3,6 +3,7 @@ import { Button } from "../../Button/Button";
 import Milkshake from "../Milkshake/Milkshake";
 import { getUserData } from "../../../utils/data_helpers";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Form = props => {
   const [values, setValues] = React.useState({
@@ -12,16 +13,31 @@ const Form = props => {
 
   let gitHubToken = process.env.REACT_APP_GITHUB_ACCESS_TOKEN;
 
+  console.log("form props", props);
+
   const handleSubmit = event => {
     event.preventDefault();
+    props.passDownName(values.name);
+    props.passDownGithub(values.githubUser);
     getUserData(values.githubUser, gitHubToken).then(
       ({ errorResponse, avatar_url }) => {
         errorResponse ? props.error(errorResponse) : props.img(avatar_url);
+        if (!errorResponse) {
+          Swal.fire(
+            "Success!",
+            `Synced with your Github & <br>ready to barrage!`,
+            "success"
+          );
+        } else {
+          Swal.fire(
+            "Failure!",
+            "Github username required <br> Please check your username is valid",
+            "error"
+          ).then(() => window.location.reload());
+        }
       }
     );
   };
-
-  console.log(values);
 
   const handleChange = event => {
     event.persist();

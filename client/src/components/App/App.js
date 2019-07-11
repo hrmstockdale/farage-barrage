@@ -12,6 +12,10 @@ const urls = {
 const App = () => {
   const [error, setError] = React.useState("");
   const [img, setImg] = React.useState(null);
+  const [nameApp, setNameApp] = React.useState(null);
+  const [githubApp, setgithubApp] = React.useState(null);
+
+  console.log("APP NAME", nameApp);
 
   const passSetterError = error => {
     setError(error);
@@ -19,6 +23,14 @@ const App = () => {
 
   const passSetterImg = img => {
     setImg(img);
+  };
+
+  const passSetterName = name => {
+    setNameApp(name);
+  };
+
+  const passSetterGithub = github => {
+    setgithubApp(github);
   };
 
   console.log("app.js", img);
@@ -32,14 +44,28 @@ const App = () => {
             path={urls.home}
             render={props => {
               return (
-                <Login {...props} error={passSetterError} img={passSetterImg} />
+                <Login
+                  {...props}
+                  error={passSetterError}
+                  img={passSetterImg}
+                  nameApp={passSetterName}
+                  githubApp={passSetterGithub}
+                />
               );
             }}
           />
           <Route
             exact
             path={urls.game}
-            render={props => <Game {...props} error={error} img={img} />}
+            render={props => (
+              <Game
+                {...props}
+                error={error}
+                img={img}
+                name={nameApp}
+                github={githubApp}
+              />
+            )}
           />
         </Switch>
       </div>

@@ -16,7 +16,6 @@ const Farage = props => {
     left: 100
   });
 
-  console.log(count);
   React.useEffect(() => {
     const imageURLs = [farage1, farage2, farage3, farage4];
 
@@ -30,6 +29,7 @@ const Farage = props => {
     setTimer(prevTime => prevTime - 10);
     setCount(prevCount => prevCount + 1);
     props.updateScore();
+    props.movePlayer();
     randomize();
   };
 
@@ -40,7 +40,12 @@ const Farage = props => {
       randomize();
     }, timer);
     return () => clearInterval(interval);
-  }, [randomize]);
+  });
+
+  React.useEffect(() => {
+    setPosition(props.faragePosition);
+    setTimer(prevTime => prevTime - 10);
+  }, [props.faragePosition]);
 
   if (!img) {
     return <p>Loading...</p>;

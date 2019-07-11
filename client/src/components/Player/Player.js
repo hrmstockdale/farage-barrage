@@ -19,6 +19,7 @@ const Player = props => {
     setTimer(prevTime => prevTime - 10);
     setCount(prevCount => prevCount + 1);
     props.updateScore();
+    props.moveFarage();
     randomize();
   };
 
@@ -29,7 +30,12 @@ const Player = props => {
       randomize();
     }, timer);
     return () => clearInterval(interval);
-  }, [randomize]);
+  });
+
+  React.useEffect(() => {
+    setPosition(props.playerPosition);
+    setTimer(prevTime => prevTime - 10);
+  }, [props.playerPosition]);
 
   if (!props.img && !props.error) {
     return <p>Loading...</p>;
