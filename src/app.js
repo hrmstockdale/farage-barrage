@@ -49,13 +49,6 @@ nameUserScoreRoutes.route("/").get((req, res) => {
   });
 });
 
-nameUserScoreRoutes.route("/:id").get((req, res) => {
-  let id = req.params.id;
-  nameUserScoreModel.findById(id, (err, data) => {
-    res.json(data);
-  });
-});
-
 nameUserScoreRoutes.route("/add").post((req, res) => {
   let entry = new nameUserScoreModel(req.body);
   entry
