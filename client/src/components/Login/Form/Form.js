@@ -10,12 +10,15 @@ const Form = props => {
     name: "",
     githubUser: ""
   });
-  console.log(values);
 
   let gitHubToken = process.env.REACT_APP_GITHUB_ACCESS_TOKEN;
 
+  console.log("form props", props);
+
   const handleSubmit = event => {
     event.preventDefault();
+    props.passDownName(values.name);
+    props.passDownGithub(values.githubUser);
     getUserData(values.githubUser, gitHubToken).then(
       ({ errorResponse, avatar_url }) => {
         errorResponse ? props.error(errorResponse) : props.img(avatar_url);
@@ -35,8 +38,6 @@ const Form = props => {
       }
     );
   };
-
-  console.log(values);
 
   const handleChange = event => {
     event.persist();

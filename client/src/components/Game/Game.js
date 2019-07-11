@@ -10,6 +10,11 @@ import { getViewportSize, randomCoords } from "../../utils/randomCoords";
 
 const Game = props => {
   const [points, setPoints] = React.useState(0);
+  const [modalInfo, setModalInfo] = React.useState({
+    name: props.name,
+    github: props.github,
+    score: points
+  });
   const [game, setGame] = React.useState(true);
   const [playerPosition, setPlayerPosition] = React.useState({
     position: "absolute",
@@ -45,11 +50,39 @@ const Game = props => {
   const passDownImg = props.img;
   const passDownError = props.error;
 
+  const handleChange = event => {
+    event.persist();
+    setModalInfo(values => ({
+      ...values,
+      [event.target.name]: event.target.value
+    }));
+  };
+
+  console.log("modalInfo, game.js: ", modalInfo);
+  const handleSubmit = event => {
+    event.preventDefault();
+    let databody = {
+      name: modalInfo.name,
+      github: modalInfo.github,
+      score: modalInfo.score
+    };
+
+    fetch("/nameUserScores/add", {
+      method: "POST",
+      body: JSON.stringify(databody),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(data => console.log(data));
+  };
+
   return (
     <React.Fragment>
       <OpenModal
         toggle={show => (
-          <React.Fragment data={points}>
+          <React.Fragment>
             <Scoreboard data={points} />
             <Timer toggle={show} endGame={endGame} />
             {game ? (
@@ -72,15 +105,18 @@ const Game = props => {
         )}
         content={hide => (
           <Modal>
-            <Button onClick={hide}>X</Button>
-            <h2>Final Score: {points}</h2>
-            <p>
-              <Link href='http://www.lsx.org.uk/'>
-                London Sustainability Exchange
-              </Link>{" "}
-              is a “think and do” charity which creates collaborations that
-              address the complex barriers to a sustainable London.
-            </p>
+            <p>Congratulations!</p>
+            <form form='form' onSubmit={handleSubmit}>
+              <h2>Final Score: {points}</h2>
+              <input
+                type='text'
+                value={modalInfo.name}
+                onChange={handleChange}
+              />
+              <Button form='form' type='submit'>
+                Submit Score
+              </Button>
+            </form>
           </Modal>
         )}
       />

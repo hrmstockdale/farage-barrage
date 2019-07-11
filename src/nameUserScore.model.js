@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const nameUserScore = new Schema({
   name: { type: String, required: true, maxlength: 50 },
-  user: { type: String, required: true, maxlength: 50 },
+  github: { type: String, required: true, maxlength: 50 },
   score: { type: Number, required: true }
 });
 
