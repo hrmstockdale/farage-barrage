@@ -14,13 +14,23 @@ const Timer = props => {
         () => setElapsedTime(prevElapsedTime => prevElapsedTime - 0.1),
         100
       );
+    } else if (elapsedTime < 0) {
+      props.toggle();
+      console.log("here");
     }
-    return () => clearInterval(interval);
-  }, [isRunning]);
+    return () => {
+      clearInterval(interval);
+    };
+  });
 
   React.useEffect(() => {
     setIsRunning(true);
   }, []);
+
+  if (elapsedTime === 0) {
+    props.toggle();
+    console.log("here");
+  }
 
   // const handleReset = () => {
   //   setIsRunning(false);

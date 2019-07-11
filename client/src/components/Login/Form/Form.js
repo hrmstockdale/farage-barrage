@@ -22,7 +22,7 @@ const Form = props => {
         if (!errorResponse) {
           Swal.fire(
             "Success!",
-            `You're connected to github & <br>ready to barrage!`,
+            `Synced with your Github & <br>ready to barrage!`,
             "success"
           );
         } else {
