@@ -3,7 +3,7 @@ import { Button } from "../Button/Button";
 
 const Timer = props => {
   const [isRunning, setIsRunning] = React.useState(false);
-  const [elapsedTime, setElapsedTime] = React.useState(3);
+  const [elapsedTime, setElapsedTime] = React.useState(60);
 
   console.log("Timer props= ", props);
 
@@ -50,7 +50,6 @@ const Timer = props => {
   return (
     <div>
       <div>
-        <Button link='/game'>Start</Button>
         <Button link='/'>Back</Button>
       </div>
       <h1>{elapsedTime.toFixed(1)}s</h1>

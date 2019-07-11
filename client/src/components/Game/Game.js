@@ -6,9 +6,20 @@ import Timer from "../Timer/Timer.js";
 import { Modal, OpenModal } from "../Modal/Modal";
 import { Button } from "../Button/Button";
 import { Link } from "react-router-dom";
+import { getViewportSize, randomCoords } from "../../utils/randomCoords";
 
 const Game = props => {
   const [points, setPoints] = React.useState(0);
+  const [playerPosition, setPlayerPosition] = React.useState({
+    position: "absolute",
+    top: 100,
+    left: 100
+  });
+  const [faragePosition, setFaragePosition] = React.useState({
+    position: "absolute",
+    top: 150,
+    left: 150
+  });
 
   const plusPlayerOnClick = () => {
     setPoints(prevPoints => prevPoints + 1);
@@ -16,6 +27,14 @@ const Game = props => {
 
   const minusPlayerOnClick = () => {
     setPoints(prevPoints => prevPoints - 1);
+  };
+
+  const movePlayer = () => {
+    setPlayerPosition(randomCoords(getViewportSize()));
+  };
+
+  const moveFarage = () => {
+    setFaragePosition(randomCoords(getViewportSize()));
   };
 
   const passDownImg = props.img;
@@ -29,17 +48,23 @@ const Game = props => {
             <Scoreboard data={points} />
             <Timer toggle={show} />
             <Player
+              moveFarage={moveFarage}
+              playerPosition={playerPosition}
               updateScore={minusPlayerOnClick}
               error={passDownError}
               img={passDownImg}
             />
-            <Farage updateScore={plusPlayerOnClick} />
+            <Farage
+              updateScore={plusPlayerOnClick}
+              movePlayer={movePlayer}
+              faragePosition={faragePosition}
+            />
           </React.Fragment>
         )}
         content={hide => (
           <Modal>
             <Button onClick={hide}>X</Button>
-            <h2>About LSx</h2>
+            <h2>Final Score: {points}</h2>
             <p>
               <Link href='http://www.lsx.org.uk/'>
                 London Sustainability Exchange
