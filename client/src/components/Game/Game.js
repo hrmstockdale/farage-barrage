@@ -5,7 +5,7 @@ import Farage from "../Farage/Farage.js";
 import Timer from "../Timer/Timer.js";
 import { Modal, OpenModal } from "../Modal/Modal";
 import { Button } from "../Button/Button";
-import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { getViewportSize, randomCoords } from "../../utils/randomCoords";
 
 const Game = props => {
@@ -75,7 +75,18 @@ const Game = props => {
       }
     })
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => {
+        Swal.fire("Success!", `Score submitted!`, "success");
+        console.log("made it back =) ", data);
+      })
+      .catch(error => {
+        Swal.fire(
+          "Oh no!",
+          "There has been an error <br> Be sure you signed in with Github <br> in order to submit a highscore",
+          "error"
+        );
+        console.log("oops an error", error);
+      });
   };
 
   return (

@@ -12,8 +12,8 @@ const urls = {
 const App = () => {
   const [error, setError] = React.useState("");
   const [img, setImg] = React.useState(null);
-  const [nameApp, setNameApp] = React.useState(null);
-  const [githubApp, setgithubApp] = React.useState(null);
+  const [nameApp, setNameApp] = React.useState("");
+  const [githubApp, setgithubApp] = React.useState("");
 
   console.log("APP NAME", nameApp);
 
