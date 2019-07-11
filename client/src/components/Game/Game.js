@@ -10,6 +10,7 @@ import { getViewportSize, randomCoords } from "../../utils/randomCoords";
 
 const Game = props => {
   const [points, setPoints] = React.useState(0);
+  const [game, setGame] = React.useState(true);
   const [playerPosition, setPlayerPosition] = React.useState({
     position: "absolute",
     top: 100,
@@ -20,6 +21,10 @@ const Game = props => {
     top: 150,
     left: 150
   });
+
+  const endGame = () => {
+    setGame(false);
+  };
 
   const plusPlayerOnClick = () => {
     setPoints(prevPoints => prevPoints + 1);
@@ -46,19 +51,23 @@ const Game = props => {
         toggle={show => (
           <React.Fragment data={points}>
             <Scoreboard data={points} />
-            <Timer toggle={show} />
-            <Player
-              moveFarage={moveFarage}
-              playerPosition={playerPosition}
-              updateScore={minusPlayerOnClick}
-              error={passDownError}
-              img={passDownImg}
-            />
-            <Farage
-              updateScore={plusPlayerOnClick}
-              movePlayer={movePlayer}
-              faragePosition={faragePosition}
-            />
+            <Timer toggle={show} endGame={endGame} />
+            {game ? (
+              <Player
+                moveFarage={moveFarage}
+                playerPosition={playerPosition}
+                updateScore={minusPlayerOnClick}
+                error={passDownError}
+                img={passDownImg}
+              />
+            ) : null}
+            {game ? (
+              <Farage
+                updateScore={plusPlayerOnClick}
+                movePlayer={movePlayer}
+                faragePosition={faragePosition}
+              />
+            ) : null}
           </React.Fragment>
         )}
         content={hide => (

@@ -3,7 +3,7 @@ import { Button } from "../Button/Button";
 
 const Timer = props => {
   const [isRunning, setIsRunning] = React.useState(false);
-  const [elapsedTime, setElapsedTime] = React.useState(60);
+  const [elapsedTime, setElapsedTime] = React.useState(3);
 
   console.log("Timer props= ", props);
 
@@ -16,6 +16,7 @@ const Timer = props => {
       );
     } else if (elapsedTime < 0) {
       props.toggle();
+      props.endGame();
       console.log("here");
     }
     return () => {
@@ -26,11 +27,6 @@ const Timer = props => {
   React.useEffect(() => {
     setIsRunning(true);
   }, []);
-
-  if (elapsedTime === 0) {
-    props.toggle();
-    console.log("here");
-  }
 
   // const handleReset = () => {
   //   setIsRunning(false);
