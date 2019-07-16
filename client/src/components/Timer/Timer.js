@@ -5,8 +5,6 @@ const Timer = props => {
   const [isRunning, setIsRunning] = React.useState(false);
   const [elapsedTime, setElapsedTime] = React.useState(60);
 
-  console.log("Timer props= ", props);
-
   React.useEffect(() => {
     let interval;
     if (isRunning && elapsedTime > 0) {
@@ -17,7 +15,6 @@ const Timer = props => {
     } else if (elapsedTime < 0) {
       props.toggle();
       props.endGame();
-      console.log("here");
     }
     return () => {
       clearInterval(interval);

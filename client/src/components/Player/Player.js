@@ -12,8 +12,6 @@ const Player = props => {
     left: 50
   });
 
-  console.log("player props", props);
-
   const randomize = () => setPosition(randomCoords(getViewportSize()));
   const updateScoreSetPosition = () => {
     setTimer(prevTime => prevTime - 10);
@@ -48,7 +46,6 @@ const Player = props => {
     e.preventDefault();
   };
 
-  console.log(props.img);
   return (
     <img
       className='player'

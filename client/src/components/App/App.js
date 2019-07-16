@@ -15,8 +15,6 @@ const App = () => {
   const [nameApp, setNameApp] = React.useState(null);
   const [githubApp, setgithubApp] = React.useState(null);
 
-  console.log("APP NAME", nameApp);
-
   const passSetterError = error => {
     setError(error);
   };
@@ -32,8 +30,6 @@ const App = () => {
   const passSetterGithub = github => {
     setgithubApp(github);
   };
-
-  console.log("app.js", img);
 
   return (
     <BrowserRouter>
