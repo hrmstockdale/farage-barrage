@@ -26,7 +26,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
 });
 
-mongoose.connect("mongodb://127.0.0.1:27017/farage-barrage", {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true
 });
 const connection = mongoose.connection;
