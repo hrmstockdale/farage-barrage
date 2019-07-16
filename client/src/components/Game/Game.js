@@ -58,13 +58,12 @@ const Game = props => {
     }));
   };
 
-  console.log("modalInfo, game.js: ", modalInfo);
   const handleSubmit = event => {
     event.preventDefault();
     let databody = {
       name: modalInfo.name,
       github: modalInfo.github,
-      score: modalInfo.score
+      score: points
     };
 
     fetch("/nameUserScores/add", {
@@ -77,7 +76,6 @@ const Game = props => {
       .then(res => res.json())
       .then(data => {
         Swal.fire("Success!", `Highscore submitted!`, "success");
-        console.log("success: ", data);
       })
       .catch(error => {
         Swal.fire(

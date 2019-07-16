@@ -13,8 +13,6 @@ const Form = props => {
 
   let gitHubToken = process.env.REACT_APP_GITHUB_ACCESS_TOKEN;
 
-  console.log("form props", props);
-
   const handleSubmit = event => {
     event.preventDefault();
     props.passDownName(values.name);

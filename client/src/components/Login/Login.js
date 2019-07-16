@@ -7,7 +7,6 @@ const Login = props => {
   const passDownName = props.nameApp;
   const passDownGithub = props.githubApp;
 
-  console.log("passdown", passDownName);
   return (
     <React.Fragment>
       <div className='App1'>
