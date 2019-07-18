@@ -5,6 +5,7 @@ import Milkshake from "../Milkshake/Milkshake";
 import { getUserData } from "../../../utils/data_helpers";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import * as S from "./Form.style";
 
 const Form = props => {
   const [values, setValues] = React.useState({
@@ -48,37 +49,49 @@ const Form = props => {
 
   return (
     <React.Fragment>
-      <form className='form' onSubmit={handleSubmit}>
+      <S.Loginform className='form' onSubmit={handleSubmit}>
         <h1>Farrage Barrage</h1>
         <Highscores />
         <Milkshake />
-        <label>
-          Name:
-          <br />
-          <input
+        <S.InstructionsContainer>
+          <S.Instructions>
+            <b>SYNC</b> to Github
+          </S.Instructions>
+          <S.Instructions>
+            When you are ready, click <b>PLAY</b>
+          </S.Instructions>
+          <S.Instructions>
+            Barrage Farage, <u>not yourself</u>
+          </S.Instructions>
+        </S.InstructionsContainer>
+        <S.LoginFormLabel>
+          Name:&nbsp;&nbsp;
+          <S.LogiformInput
+            placeholder='name'
             name='name'
             type='text'
             value={values.name}
             onChange={handleChange}
           />
-        </label>
-        <label>
-          Github username:
-          <input
+        </S.LoginFormLabel>
+        <S.LoginFormLabel>
+          Github:
+          <S.LogiformInput
+            placeholder=' Github username'
             name='githubUser'
             type='text'
             value={values.githubUser}
             onChange={handleChange}
           />
-        </label>
+        </S.LoginFormLabel>
         <Button form='form' type='submit'>
-          LOGIN
+          SYNC
         </Button>
 
         <Link to='/game'>
           <Button form='form'>play</Button>
         </Link>
-      </form>
+      </S.Loginform>
     </React.Fragment>
   );
 };

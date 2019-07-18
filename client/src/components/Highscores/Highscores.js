@@ -5,7 +5,6 @@ require("env2")("./.env");
 
 const Highscores = props => {
   const [data, loading] = GetHighscores("/nameUserScores/get");
-  console.log(data);
 
   return (
     <React.Fragment>
