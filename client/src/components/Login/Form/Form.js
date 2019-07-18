@@ -1,4 +1,5 @@
 import React from "react";
+import Highscores from "../../Highscores/Highscores";
 import { Button } from "../../Button/Button";
 import Milkshake from "../Milkshake/Milkshake";
 import { getUserData } from "../../../utils/data_helpers";
@@ -49,9 +50,10 @@ const Form = props => {
     <React.Fragment>
       <form className='form' onSubmit={handleSubmit}>
         <h1>Farrage Barrage</h1>
+        <Highscores />
         <Milkshake />
         <label>
-          name:
+          Name:
           <br />
           <input
             name='name'

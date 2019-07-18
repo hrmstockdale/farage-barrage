@@ -22,10 +22,6 @@ app.disable("x-powered -by");
 
 app.set("PORT", process.env.PORT || 9000);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
-});
-
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true
 });
@@ -37,17 +33,36 @@ connection.once("open", () => {
 
 const nameUserScoreRoutes = express.Router();
 
+// nameUserScoreRoutes.get("/get", (req, res) => {
+//   nameUserScoreModel.find({}, (err, data) => {
+//     if (err) {
+//       console.log("error ", err);
+//     } else {
+//       res.json(data);
+//       console.log(data);
+//     }
+//   });
+// });
+
 app.use("/nameUserScores", nameUserScoreRoutes);
 
-nameUserScoreRoutes.route("/").get((req, res) => {
-  nameUserScoreModel.find((err, data) => {
+nameUserScoreRoutes.route("/get").get((req, res) => {
+  nameUserScoreModel.find({}, (err, data) => {
     if (err) {
-      console.log(err);
+      console.log("error ", err);
     } else {
       res.json(data);
+      console.log(data);
     }
   });
 });
+
+// nameUserScoreRoutes.route("/get").get((req, res) => {
+//   nameUserScoreModel
+//     .find({})
+//     .then(res => res.json())
+//     .catch(err => console.log(err));
+// });
 
 nameUserScoreRoutes.route("/add").post((req, res) => {
   let entry = new nameUserScoreModel(req.body);
@@ -61,6 +76,10 @@ nameUserScoreRoutes.route("/add").post((req, res) => {
       res.status(400).send("adding new entry failed");
       console.log(err);
     });
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
 });
 
 module.exports = app;
