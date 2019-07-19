@@ -8,9 +8,12 @@
 # Farage Barrage
 
 - Core tech:
-  - React [(CRA v2)](https://github.com/facebook/create-react-app).
+  - React [(CRA v2)](https://github.com/facebook/create-react-app)
+    - Styled components 
   - Express
+    - Mongoose
   - MongoDB
+    - mLab
 
 
 ## The aim of the game 
@@ -43,3 +46,18 @@
 - The power and utility of patterns like 'lifting state'
 - MongoDB: how to setup a Mongo Schema
 - mLab DBaaS - cloud db service
+
+## TODO
+- [ ] refactor & exhaustively remove commented-out code
+- [ ] refactor all css rules to styled components for uniformity
+- [ ] disable Back button in Game page comp when playing the 60sec game
+
+
+## Stretch Goals
+- [x] Add loading icon/animation/text for github image
+- [x] landing window with input for username and button to start game
+- [x] Have a timer
+- [ ] Character select functionality (Farage, Bush, Corbyn)
+- [ ] Cursor animation on click
+- [ ] Add some kind of Newcastle styling/easter egg (newcastle football scoreboard)
+- [x] Difficulty level incrememnt
