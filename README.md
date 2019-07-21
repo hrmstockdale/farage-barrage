@@ -49,7 +49,7 @@
 
 ## TODO
 - [ ] refactor & exhaustively remove commented-out code
-- [ ] refactor all css rules to styled components for uniformity
+- [ ] refactor all css rules to styled components for uniformity's sake
 - [ ] disable Back button in Game page comp when playing the 60sec game
 
 
@@ -57,7 +57,7 @@
 - [x] Add loading icon/animation/text for github image
 - [x] landing window with input for username and button to start game
 - [x] Have a timer
-- [ ] Character select functionality (Farage, Bush, Corbyn)
+- [ ] Character select functionality (Farage, Bush, Corbyn & their respective milkshakes, shoes and eggs projectiles)
 - [ ] Cursor animation on click
-- [ ] Add some kind of Newcastle styling/easter egg (newcastle football scoreboard)
+- [ ] Add style the Game comp to a setting related to the stretch characters above(newcastle football scoreboard)
 - [x] Difficulty level incrememnt
