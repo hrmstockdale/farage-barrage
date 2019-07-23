@@ -9,12 +9,9 @@ const Instructions = styled.p`
 const Loginform = styled.form`
   display: flex;
   flex-direction: column;
-  position: relative;
   justify-content: center;
-  text-align: center;
   width: 320px;
-  height: 90vh;
-  padding: 1em;
+  padding: 1.5em;
   background-color: #ffe4c3;
   border: 1px solid rgb(234, 85, 105);
   border-width: 10px 6px 6px 10px;
